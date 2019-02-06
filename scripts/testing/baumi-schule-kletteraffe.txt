@@ -1,0 +1,22 @@
+def update():
+   tiles = ProxyGameState.getTilesInRange()
+   nextRightTile = tiles[6][5]
+   tileOnMe = tiles[5][5]
+   tileAboveMe = tiles[5][4]
+   tileBeneathMe = tiles[5][6]
+
+   if tileOnMe.isLadder():
+      if tileBeneathMe.isSolid():
+         InputState.upKeyPressed = True
+         InputState.rightKeyPressed = False
+         InputState.downKeyPressed = False
+      elif tileAboveMe.isSolid():
+         InputState.upKeyPressed = False
+         InputState.rightKeyPressed = False
+         InputState.downKeyPressed = True
+   elif not nextRightTile.isSolid() or not nextRightTile.isLadder():
+      InputState.upKeyPressed = False
+      InputState.rightKeyPressed = True
+      InputState.downKeyPressed = False
+   else:
+      print('KletterAffe: Instructions unclear')

@@ -1,0 +1,23 @@
+flipped = False
+def update():
+	global flipped
+	tiles = ProxyGameState.getTilesInRange()
+	if not flipped:
+		if tiles[4][5] is None:
+			flipped = True
+		elif tiles[4][5].isSolid():
+			flipped = True
+				
+	else:
+		if tiles[6][5] is None:
+			flipped = False
+		elif tiles[6][5].isSolid():
+			flipped = False
+
+	if flipped:
+		InputState.leftKeyPressed = False
+		InputState.rightKeyPressed = True
+	else:
+		InputState.rightKeyPressed = False
+		InputState.leftKeyPressed = True
+

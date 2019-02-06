@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="LoadRunnerClient.GameEnding"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LoadRunnerClient"
+        mc:Ignorable="d"
+        Width="800"
+		MinHeight="800"
+		Padding="0,20,0,20"
+        Background="{StaticResource WindowBackground}"
+        Loaded="UserControl_Loaded">
+	<UserControl.Resources>
+		<Style x:Key="WinVisibility" TargetType="StackPanel">
+			<Style.Triggers>
+				<DataTrigger Binding="{Binding SomeoneWon, UpdateSourceTrigger=PropertyChanged}" Value="False">
+					<Setter Property="Visibility" Value="Hidden" />
+					<Setter Property="MaxHeight" Value="0" />
+				</DataTrigger>
+
+				<DataTrigger Binding="{Binding SomeoneWon, UpdateSourceTrigger=PropertyChanged}" Value="True">
+					<Setter Property="Visibility" Value="Visible" />
+				</DataTrigger>
+			</Style.Triggers>
+		</Style>		
+		<Style x:Key="LoseVisibility" TargetType="StackPanel">
+			<Style.Triggers>
+				<DataTrigger Binding="{Binding SomeoneWon, UpdateSourceTrigger=PropertyChanged}" Value="False">
+					<Setter Property="Visibility" Value="Visible" />
+				</DataTrigger>
+
+				<DataTrigger Binding="{Binding SomeoneWon, UpdateSourceTrigger=PropertyChanged}" Value="True">
+					<Setter Property="Visibility" Value="Hidden" />
+					<Setter Property="MaxHeight" Value="0" />
+				</DataTrigger>
+			</Style.Triggers>
+		</Style>
+	</UserControl.Resources>
+    <StackPanel VerticalAlignment="Center" Width="500">
+		<TextBlock TextWrapping="Wrap" Text="{Binding State}" TextAlignment="Center" FontSize="48" Margin="0,0,0,40" Foreground="{StaticResource RetroGreen}"/>
+		<StackPanel Orientation="Horizontal" Style="{StaticResource WinVisibility}">
+			<Rectangle Width="100" Margin="0,0,50,0">
+				<Rectangle.Fill>
+					<ImageBrush ImageSource="{Binding WinnerSprite}" />
+				</Rectangle.Fill>
+			</Rectangle>
+			<StackPanel Margin="0,0,0,60" Width="350">
+				<TextBlock TextWrapping="Wrap" Text="Congratulations" FontSize="18" Foreground="White"/>
+				<TextBlock TextWrapping="Wrap" Text="{Binding Winner}"  FontSize="72" Foreground="{Binding WinnerColor}"/>
+				<TextBlock TextWrapping="Wrap" Text="you studied more than anyone else!" FontSize="18" Foreground="White"/>
+			</StackPanel>
+		</StackPanel>
+		<StackPanel Margin="0,0,0,60" Style="{StaticResource LoseVisibility}">
+			<TextBlock Foreground="White">
+				Maybe you all should consider Wirtschaftsinformatik.
+			</TextBlock>
+		</StackPanel>
+		<TextBlock TextWrapping="Wrap" Text="SCORES" FontSize="18" Foreground="White" TextAlignment="Center" Margin="0,0,0,20"/>
+		<ItemsControl x:Name="ScoreText" ItemsSource="{Binding ScoreModels}" Width="500" Grid.Row="2" BorderBrush="{StaticResource RetroGreen}" BorderThickness="5" Padding="10">
+            <ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<WrapPanel />
+				</ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Width="480" TextWrapping="Wrap" TextAlignment="Left" FontSize="24" Foreground="White">
+							<TextBlock.Text>
+								<MultiBinding StringFormat="{}{0} - {1} CP">
+									<Binding Path="User"/>
+									<Binding Path="Score"/>
+								</MultiBinding>
+							</TextBlock.Text>
+						</TextBlock>
+				</DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+		<Button x:Name="BackButton" Content="Back To Lobby" FontSize="18" Foreground="White" Command="{Binding BackToLobbyCommand}" Margin="0,20,0,0"/>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,41 @@
+﻿<Window x:Class="LoadRunnerClient.EnemyScriptDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LoadRunnerClient"
+        mc:Ignorable="d"
+        Background="{StaticResource WindowBackground}"
+        Title="Edit Enemy Spawn Point" Height="550" Width="800"
+        Closing="OnClose">
+    <DockPanel Margin="10">
+        
+        <StackPanel DockPanel.Dock="Top"  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20,20,0">
+            <Label Content="Enemy Name:" Foreground="White" Margin="0,0,10,0"/>
+            <TextBox x:Name="EnemyName"                
+                 TextWrapping="Wrap"
+                 MaxLines="1"
+                 Padding="0"
+                 Text="{Binding name}"
+                 Width="300"            
+                 />
+        </StackPanel>
+
+        <Label Content="Python Code:" Foreground="White" DockPanel.Dock="Top" Margin="20,10,0,0"/>
+
+        <StackPanel DockPanel.Dock="Bottom"  Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,20,20,0">
+            <Button x:Name="Okay" Content="Okay" Command="{Binding ConfirmCommand}" VerticalAlignment="Top" Width="80" Height="40" Margin="0,0,0,0"/>
+            <Button x:Name="Cancel" Content="Cancel" Command="{Binding CancelCommand}" VerticalAlignment="Top" Width="80" Height="40" Margin="20,0,0,0"/>
+        </StackPanel>
+
+        <TextBox
+        x:Name="PythonCode"   
+        Text="{Binding code}"
+        Margin="20,10,20,0"
+        TextWrapping="Wrap"
+        AcceptsReturn="True"
+        VerticalScrollBarVisibility="Visible"
+        />
+
+    </DockPanel>
+</Window>

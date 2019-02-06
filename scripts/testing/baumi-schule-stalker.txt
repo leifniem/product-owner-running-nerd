@@ -1,0 +1,25 @@
+def update():
+   tiles = ProxyGameState.getTilesInRange()
+   players = ProxyGameState.getPlayersInRange()
+
+   firstPlayerInRange = players[0] if len(players) > 0 else False
+   
+   if firstPlayerInRange:
+      if firstPlayerInRange.x < 0:
+         if not tiles[4][5].isSolid():
+            InputState.leftKeyPressed = True
+         else:
+            InputState.leftKeyPressed = False
+         InputState.rightKeyPressed = False
+         InputState.jumpKeyPressed = False
+      elif firstPlayerInRange.x > 0:
+         if not tiles[6][5].isSolid():
+            InputState.rightKeyPressed = True
+         else:
+            InputState.rightKeyPressed = False
+         InputState.leftKeyPressed = False
+         InputState.jumpKeyPressed = False
+   else:
+      InputState.jumpKeyPressed = True
+      InputState.leftKeyPressed = False
+      InputState.rightKeyPressed = False

@@ -1,0 +1,62 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'idea'
+    id 'jacoco'
+    id "org.sonarqube" version "2.6"
+}
+
+group 'de.hsrm.mi.swtpro03'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+mainClassName = "de.hsrm.mi.swtpro03.server.Server"
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.apache.activemq/activemq-all
+    compile 'org.apache.activemq:activemq-all:5.15.8'
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
+
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api/2.11.1
+    compile 'org.apache.logging.log4j:log4j-api:2.11.1'
+
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
+    compile 'org.apache.logging.log4j:log4j-core:2.11.1'
+
+    // https://mvnrepository.com/artifact/org.mockito/mockito-core
+    testCompile 'org.mockito:mockito-core:2.+'
+
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params
+    testCompile 'org.junit.jupiter:junit-jupiter-params:5.3.1'
+
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
+    testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    
+    // https://mvnrepository.com/artifact/org.python/jython-standalone
+    implementation 'org.python:jython-standalone:2.7.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": mainClassName
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}

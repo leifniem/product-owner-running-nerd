@@ -1,0 +1,11 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'idea'
+}
+
+group 'de.hsrm.mi.swtpro03'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8

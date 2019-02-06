@@ -1,0 +1,41 @@
+﻿<Window x:Name="Hauptfenster" x:Class="LoadRunnerClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LoadRunnerClient"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+		SizeToContent="WidthAndHeight"
+		Background="{DynamicResource WindowBackground}"
+		HorizontalAlignment="Center"
+		HorizontalContentAlignment="Center"
+		VerticalAlignment="Center">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type local:LoginViewModel}">
+            <local:Login />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:ServerListViewModel}">
+            <local:ServerList />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:GameLobbyViewModel}">
+            <local:GameLobby />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:CreateSessionViewModel}">
+            <local:CreateSession />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:GameViewModel}">
+            <local:Game />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:EditorViewModel}">
+            <local:Editor />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:GameEndViewModel}">
+            <local:GameEnding />
+        </DataTemplate>
+    </Window.Resources>
+    <WrapPanel HorizontalAlignment="Center">
+        <ContentControl Content="{Binding CurrentViewModel}" />
+    </WrapPanel>
+</Window>

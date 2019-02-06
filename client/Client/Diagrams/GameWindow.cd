@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LoadRunnerClient.Views.GameWindow">
+    <Position X="10.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAABCAUBQAAAAAIAABAAAAAABAAAAAAEACgCAAAQA=</HashCode>
+      <FileName>Views\GameWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_clientChannelHandler" />
+      <Field Name="_map" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LoadRunnerClient.Network.ClientChannelHandler">
+    <Position X="13.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAoAIAAABBEAgAAAKCAAAEAAABAAIQSAAIAAAAggAA=</HashCode>
+      <FileName>Network\ClientChannelHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoadRunnerClient.MapAndModel.Map">
+    <Position X="7.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAIAAADAAAAAYAgAQAEACBggAQAAIAAQAggAgAE=</HashCode>
+      <FileName>MapAndModel\Map.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Players" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LoadRunnerClient.MapAndModel.GameCharacter">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAABgTAgJAAEAABAyAgAAgAgAAAAABgABAAAQAA=</HashCode>
+      <FileName>MapAndModel\GameCharacter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

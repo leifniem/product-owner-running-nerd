@@ -1,0 +1,165 @@
+﻿<Application x:Class="LoadRunnerClient.App"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:local="clr-namespace:LoadRunnerClient"
+             Exit="Application_Exit">
+    <Application.Resources>
+
+        <!-- Global Resources for GUI -->
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary>
+                    <!-- Colors - access via {StaticResource KeyName} -->
+                    <SolidColorBrush x:Key="WindowBackground" Color="#222222" />
+                    <SolidColorBrush x:Key="MinimapBackground" Color="#88222222" />
+                    <SolidColorBrush x:Key="BackgroundColor" Color="#4CF35B" />
+                    <SolidColorBrush x:Key="HoverBackgroundColor" Color="#4484A1BD" />
+                    <SolidColorBrush x:Key="ForegroundColor" Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="RetroGreen" Color="#D8957A"/>
+                    <SolidColorBrush x:Key="RetroBlue"  Color="#D8957A"/>
+                    <SolidColorBrush x:Key="RetroSilver" Color="#333333"/>
+                </ResourceDictionary>
+
+                <ResourceDictionary Source="/RetroUI;component/Themes/Generic.xaml"/>
+
+                <ResourceDictionary>
+                    <!--Textures-->
+                    <SolidColorBrush x:Key="ClearBrush" Color="#BFFFFFFF" />
+                    <ImageBrush x:Key="BrickTexture" ImageSource="Resources/Images/brick.jpg" Stretch="Fill" />
+                    <ImageBrush x:Key="HoleTexture" ImageSource="Resources/Images/brick_destroyed.png" Stretch="Fill" />
+                    <ImageBrush x:Key="LadderTexture" ImageSource="Resources/Images/ladder.png" Stretch="Fill" />
+                    <ImageBrush x:Key="PipeTexture" ImageSource="Resources/Images/pipe.png" Stretch="Fill" />
+					<ImageBrush x:Key="SolidTexture" ImageSource="Resources/Images/solid.jpg" Stretch="Fill" />
+					<ImageBrush x:Key="EnemySpawnTexture" ImageSource="Resources/Images/spawnpoint_ai.png" Stretch="Fill" />
+					<ImageBrush x:Key="PlayerSpawnTexture" ImageSource="Resources/Images/spawnpoint_user.png" Stretch="Fill" />
+                    <ImageBrush x:Key="FiveCPTexture" ImageSource="Resources/Images/coin_5.png" Stretch="Fill" />
+                    <ImageBrush x:Key="TenCPTexture" ImageSource="Resources/Images/coin_10.png" Stretch="Fill" />
+                    <ImageBrush x:Key="FifteenCPTexture" ImageSource="Resources/Images/coin_15.png" Stretch="Fill" />
+                    <ImageBrush x:Key="EnergyDrinkTexture" ImageSource="Resources/Images/energy.png" Stretch="Fill" />
+                    <ImageBrush x:Key="PizzaTexture" ImageSource="Resources/Images/pizza.png" Stretch="Fill" />
+                    <ImageBrush x:Key="LifebarMask" ImageSource="Resources/Images/hearts.png" Stretch="Fill" />
+                    <ImageBrush x:Key="BackgroundImage" ImageSource="Resources/Images/Background_1.jpg" Stretch="Fill" />
+
+                    <!--Colors-->
+                    <SolidColorBrush x:Key="COLOR_BLUE" Color="#FF4C72F3" />
+                    <SolidColorBrush x:Key="COLOR_RED" Color="#FFF34C4C" />
+                    <SolidColorBrush x:Key="COLOR_GREEN" Color="#FF4CF35B" />
+                    <SolidColorBrush x:Key="COLOR_YELLOW" Color="#FFF3F34C" />
+                    <SolidColorBrush x:Key="COLOR_ORANGE" Color="#FFF3894C" />
+                    <SolidColorBrush x:Key="COLOR_PINK" Color="#FFF07AEA" />
+                    <SolidColorBrush x:Key="COLOR_WHITE" Color="White" />
+                    <SolidColorBrush x:Key="COLOR_PURPLE" Color="#FFB153E6" />
+
+                    <!-- Grid Definition -->
+                    <Style x:Key="GridItemsStyle" TargetType="ItemsControl">
+                        <Setter Property="ItemsPanel">
+                            <Setter.Value>
+                                <ItemsPanelTemplate>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="60" />
+                                            <RowDefinition Height="60" />
+                                            <RowDefinition Height="60" />
+                                            <RowDefinition Height="60" />
+                                            <RowDefinition Height="60" />
+                                            <RowDefinition Height="60" />
+                                            <RowDefinition Height="60" />
+                                            <RowDefinition Height="60" />
+                                            <RowDefinition Height="60" />
+                                            <RowDefinition Height="60" />
+                                            <RowDefinition Height="60" />
+                                            <RowDefinition Height="60" />
+                                            <RowDefinition Height="60" />
+                                            <RowDefinition Height="60" />
+                                            <RowDefinition Height="60" />
+                                            <RowDefinition Height="60" />
+                                            <RowDefinition Height="60" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                            <ColumnDefinition Width="60" />
+                                        </Grid.ColumnDefinitions>
+                                    </Grid>
+                                </ItemsPanelTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+
+                    <!-- MiniMap Slider Styles -->
+                    <Style x:Key="CustomThumbForSlider" TargetType="{x:Type Thumb}">
+                        <Setter Property="OverridesDefaultStyle" Value="True"/>
+                        <Setter Property="Cursor" Value="ScrollWE"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Thumb}">
+                                    <Rectangle Fill="#22FFFFFF" Stroke="#FF000000" Width="260" Height="300"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+
+                    <Style x:Key="MiniMapSlider" TargetType="{x:Type Slider}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Slider}">
+                                    <Border >
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TickBar x:Name="TopTick" Visibility="Collapsed" Fill="{TemplateBinding Foreground}" Placement="Top" Height="4" Grid.Row="0"/>
+                                            <TickBar x:Name="BottomTick" Visibility="Collapsed" Fill="{TemplateBinding Foreground}" Placement="Bottom" Height="4" Grid.Row="0"/>
+
+
+                                            <Track x:Name="PART_Track" Grid.Row="1">
+                                                <Track.Thumb>
+                                                    <Thumb x:Name="Thumb" Style="{StaticResource CustomThumbForSlider}" Background="Black"/>
+                                                </Track.Thumb>
+                                            </Track>
+                                        </Grid>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+
+                    <!-- End Minimap Slider Styles -->
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

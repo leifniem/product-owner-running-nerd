@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LoadRunnerClient.Views.EditorWindow">
+    <Position X="9.25" Y="6.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAIURQAAIACKAABAHAAAIAgQgAgMEAgYAAAQAE=</HashCode>
+      <FileName>Views\EditorWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="texFac" />
+      <Field Name="_map" />
+      <Field Name="_clientChannelHandler" />
+      <Field Name="_cursors" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LoadRunnerClient.Network.ClientChannelHandler" Collapsed="true">
+    <Position X="12.5" Y="11" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAoAIAAABBEAgAAAKCAAAEAAABAAIQSAAIAAAAggAA=</HashCode>
+      <FileName>Network\ClientChannelHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoadRunnerClient.MapAndModel.Map">
+    <Position X="12.5" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAIAAADAAAAAYAgAQAEACBggAQAAIAAQAggAgAE=</HashCode>
+      <FileName>MapAndModel\Map.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoadRunnerClient.Util.TextureFactory">
+    <Position X="9.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Util\TextureFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlockCursor">
+    <Position X="6.5" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAQQIAAAAAAAAAAAAAAAAAAAAAQIggAAAYAA=</HashCode>
+      <FileName>Views\UserControls\BlockCursor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoadRunnerClient.Util.ObservableDictionary&lt;TKey, TValue&gt;" Collapsed="true">
+    <Position X="6.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAIAAABAAAAEABARCAAAhAQAgAAAAAAEAAAgAABQIAA=</HashCode>
+      <FileName>Util\ObservableDictionary.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="BlockCursor" />
+    </ShowAsAssociation>
+    <Lollipop Orientation="Bottom" Position="0.1" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
